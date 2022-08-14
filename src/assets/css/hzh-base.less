@@ -1,0 +1,18 @@
+@hzhWhite: #ffffff;
+@hzhKleinBlue: #002FA7; /*克莱因蓝*/
+@hzhMonetGrey: #969B9E; /*莫奈灰*/
+@hzhDefaultFontColor: #333;
+@hzhThemeColor: #01aaed;
+@hzhHoverBlue: #80c2ff;
+@hzhGrayDeep:rgba(0,0,0,0.43);
+
+//兼容浏览器的flex
+.hzh-flex(@hzhFlex){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-box-align: @hzhFlex;/*center|start*/
+    -webkit-align-items: @hzhFlex;
+    align-items: @hzhFlex;
+  }
