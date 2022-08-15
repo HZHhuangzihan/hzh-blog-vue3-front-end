@@ -87,7 +87,9 @@ export default {
     .hzh-footer-item {
       flex: 1;
 
-      &>div:not(:last-child) {
+      &>div {
+        display: flex;
+        justify-content: flex-start;
         margin-bottom: 10px;
       }
 
@@ -102,10 +104,21 @@ export default {
   }
 }
 
-@media (max-width: 880px) {
-  .hzh-footer {
-    .hzh-footer-main .hzh-footer-item:nth-child(3) {
-      flex: 2;
+@media (max-width: 900px) {
+
+  .hzh-footer-main {
+    .hzh-footer-item {
+      flex: 1;
+
+      &>div {
+        display: flex;
+        justify-content: center;
+
+      }
+
+      i {
+        margin-right: 10px;
+      }
     }
   }
 }
@@ -117,14 +130,16 @@ export default {
 
       .hzh-footer-item {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
       }
 
       &>div {
-        margin-bottom: 10px;
+        display: flex;
+        align-content: center;
       }
+
     }
   }
 }

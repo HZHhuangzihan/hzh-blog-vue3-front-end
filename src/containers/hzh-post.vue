@@ -119,6 +119,9 @@ p.hzh-summary {
   color: #6f6f6f;
   letter-spacing: 1px;
   line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 footer.hzh-entry-footer {

@@ -1,16 +1,16 @@
 <template>
     <transition name="fade" mode="out-in">
-        <div class="UrlCardList FriendUrlCard">
-            <div class="UrlCardTr">
-                <div class="UrlCardTd" v-for="(item, i) in hzhLaboratoryList" v-bind:key="i">
+        <div class="hzh-lab-list">
+            <div class="hzh-lab-tr">
+                <div class="hzh-lab-td" v-for="(item, i) in hzhLaboratoryList" v-bind:key="i">
                     <!--@click="UpdateRouter('BlogDetail', item)-->
-                    <div class="lab-cover">
+                    <div class="hzh-lab-cover">
                         <img v-bind:src="item.hzhArticleCover" v-if="item.hzhArticleCover">
                     </div>
-                    <div class="UrlIconName">
-                        <div class="UrlName">{{ item.Title }}</div>
+                    <div class="hzh-lab-titlewrap">
+                        <div class="hzh-lab-title">{{ item.hzhTitle }}</div>
                     </div>
-                    <div class="UrlSummary">{{ item.Summary }}</div>
+                    <div class="hzh-lab-summary">{{ item.hzhSummary }}</div>
                 </div>
             </div>
         </div>
@@ -22,88 +22,11 @@ import { hzhFetchLaboratory } from '@/apis'
 
 export default {
     name: "HzhMyLaboratory",
-    // components: {
-    //   Pagination: Pagination
-    // },
     data() {
         return {
             hzhLaboratoryList: []
         }
     },
-    //   return {
-    //     Wrapper: false,
-    //     FriendUrlNickName: '',
-    //     FriendUrlAdress: '',
-    //     FriendUrlDescript: '',
-    //     FriendsUrlList: '',
-    //     FriendUrlIcoUrl: '',
-    //     // 弹框显隐动画
-    //     FadeAnimate: false,
-
-    //     // 文章底线
-    //     AticleBottom: false,
-
-    //     FriendUrlPlaceholder: true
-    //   }
-    // },
-    // methods: {
-    //   //初始化友链列表
-    //   GetFriendUrlList: function () {
-    //     var That = this,
-    //       mvpUrl = [],//记录有标记的数据
-    //       newArray;
-
-    //     this.SQFrontAjax({
-    //       Url: '/api/ArticleRead/foreend',
-    //       UploadData: {
-    //         PagnationData: {
-    //           Skip: 0,
-    //           Limit: 8
-    //         },
-    //         ArticleTag: '试验田',
-    //         orderType:{  // 以优先级排序，需要传入此字段及值
-    //           order:1
-    //         }
-    //       },
-    //       Success: function (data) {
-    //         That.FriendsUrlList = data;
-    //       }
-    //     });
-    //   },
-    // 切换路由
-    //   UpdateRouter: function (RouterName, articleMessage) {
-    //     if (articleMessage._id) {
-    //       this.$router.push({
-    //         name: RouterName,
-    //         query: {
-    //           _id:articleMessage._id,
-    //           Title:articleMessage.Title,
-    //           from:'试验田'
-    //         }
-    //       });
-    //     } else {
-    //       this.bus.$emit('TopBar', {
-    //         Active: 1,
-    //         MobileMenuActive: 1
-    //       });
-    //       this.$router.push({
-    //         name: RouterName
-    //       });
-    //     }
-    //   },
-    // },
-    // mounted: function () {
-    //   this.GetFriendUrlList();
-    //   // 切换Topbar高亮
-    //   Store.commit("ChangeActive", 3);
-
-    //   // 创建日志
-    //   this.createLog({
-    //     moduleType:'menu',
-    //     operateType:'选择菜单',
-    //     operateContent:'试验田'
-    //   });
-    // },
     methods: {
         hzhFetchLaboratory() {
             hzhFetchLaboratory()
@@ -126,7 +49,7 @@ export default {
 
 @media only screen and (min-device-width: 768px) {
 
-    .UrlCardList {
+    .hzh-lab-list {
         width: 100vw;
         margin: 1rem auto 0;
         min-height: 29rem;
@@ -137,7 +60,7 @@ export default {
         display: block;
         z-index: 999;
 
-        .UrlCardTr {
+        .hzh-lab-tr {
             .hzh-flex('center');
             flex-wrap: wrap;
             position: relative;
@@ -145,7 +68,7 @@ export default {
             margin-top: 1rem;
             top: 5rem;
 
-            .UrlCardTd {
+            .hzh-lab-td {
                 flex: 1;
                 margin: 0.5rem;
                 padding: 0;
@@ -154,14 +77,41 @@ export default {
                 min-width: 20%;
                 top: 5rem;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-
                 &:hover {
                     transform: scale(0.95);
                     transition: all 0.3s;
+                }
+
+                .hzh-lab-cover {
+                    height: 180px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .hzh-lab-summary {
+                    color: #777;
+                    padding: 0 1rem 1rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .hzh-lab-titlewrap {
+                    .hzh-flex(center);
+                    padding: 1.2rem 1rem 1rem 1rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+
+                    .hzh-lab-title {
+                        height: 1.5rem;
+                        line-height: 1.5rem;
+                        font-size: 1.1rem;
+                    }
                 }
             }
         }
@@ -172,9 +122,6 @@ export default {
 
     .UrlCardList {
         background-color: @hzhWhite;
-    }
-
-    .FriendUrlCard {
         background-color: unset;
     }
 
@@ -198,81 +145,6 @@ export default {
         flex-wrap: wrap;
         position: relative;
         min-height: 70vh;
-    }
-}
-
-.lab-cover {
-    height: 180px;
-}
-
-.lab-cover img {
-    width: 100%;
-    height: 100%;
-}
-
-.UrlIconName {
-    .hzh-flex(center);
-    padding: 1.2rem 1rem 1rem 1rem;
-}
-
-.UrlIconName img {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 100%;
-}
-
-.UrlName {
-    height: 1.5rem;
-    line-height: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.UrlSummary {
-    color: #777;
-    padding: 0 1rem 1rem;
-}
-
-@keyframes FadeIn {
-    0% {
-        transform: scale(0.9)
-    }
-
-    20% {
-        transform: scale(0.925)
-    }
-
-    60% {
-        transform: scale(0.95)
-    }
-
-    80% {
-        transform: scale(0.975)
-    }
-
-    100% {
-        transform: scale(1)
-    }
-}
-
-@keyframes FadeOut {
-    0% {
-        transform: scale(1)
-    }
-
-    20% {
-        transform: scale(0.975)
-    }
-
-    60% {
-        transform: scale(0.95)
-    }
-
-    80% {
-        transform: scale(0.925)
-    }
-
-    100% {
-        transform: scale(0.9)
     }
 }
 </style>
