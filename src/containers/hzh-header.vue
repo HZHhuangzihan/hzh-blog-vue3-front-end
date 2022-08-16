@@ -89,7 +89,7 @@ export default {
     position: fixed;
     top: 0;
     z-index: 999;
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     padding: 0 2rem;
     height: 5rem;
@@ -165,6 +165,7 @@ export default {
 
 @media (max-width: 1073px) {
     .hzh-header {
+        width: 100vw;
         padding: 0 0.625rem;
 
         .hzh-menus-btn {

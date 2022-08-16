@@ -100,10 +100,10 @@ export default {
 
 @media (max-width: 1050px) {
     .hzh-site-main {
-        padding-top: 2.5rem;
+        padding-top: 5rem;
     }
 
-    .hzh-site-content .hzh-search-result {
+    .hzh-site-content {
         margin-bottom: 1.25rem;
         font-size: 16px;
     }

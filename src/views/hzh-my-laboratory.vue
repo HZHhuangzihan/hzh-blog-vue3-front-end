@@ -47,7 +47,7 @@ export default {
 <style scoped lang="less">
 @import "@/assets/css/hzh-base.less";
 
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-device-width: 1000px) {
 
     .hzh-lab-list {
         width: 100vw;
@@ -66,7 +66,7 @@ export default {
             position: relative;
             min-height: 70vh;
             margin-top: 1rem;
-            top: 5rem;
+            padding-top: 5rem;
 
             .hzh-lab-td {
                 flex: 1;
@@ -75,7 +75,6 @@ export default {
                 background-color: @hzhWhite;
                 cursor: pointer;
                 min-width: 20%;
-                top: 5rem;
 
                 &:hover {
                     transform: scale(0.95);
@@ -83,7 +82,7 @@ export default {
                 }
 
                 .hzh-lab-cover {
-                    height: 180px;
+                    height: 14rem;
 
                     img {
                         width: 100%;
@@ -94,23 +93,19 @@ export default {
                 .hzh-lab-summary {
                     color: #777;
                     padding: 0 1rem 1rem;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
                 }
 
                 .hzh-lab-titlewrap {
                     .hzh-flex(center);
                     padding: 1.2rem 1rem 1rem 1rem;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-
 
                     .hzh-lab-title {
                         height: 1.5rem;
                         line-height: 1.5rem;
                         font-size: 1.1rem;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
             }
@@ -118,33 +113,46 @@ export default {
     }
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-device-width: 1000px) {
 
-    .UrlCardList {
+    .hzh-lab-list {
         background-color: @hzhWhite;
-        background-color: unset;
-    }
 
-    .UrlCardTd {
-        flex: 1;
-        width: 100%;
-        margin: 1rem 1rem 0rem 1rem;
-        padding: 1rem;
-        background-color: @hzhWhite
-    }
+        .hzh-lab-tr {
+            .hzh-flex('center');
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 70vh;
 
-    .UrlCardTr {
-        .hzh-flex('center');
-        flex-wrap: wrap;
-        position: relative;
-        min-height: 70vh;
-    }
+            .hzh-lab-td {
+                margin: 1rem 1rem 0rem 1rem;
+                background-color: @hzhWhite;
+                padding-top: 5rem;
 
-    .UrlCardTr {
-        .hzh-flex('center');
-        flex-wrap: wrap;
-        position: relative;
-        min-height: 70vh;
+                .hzh-lab-cover {
+                    width: 20rem;
+                    height: 20rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .hzh-lab-summary {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    height: 1.875rem;
+                }
+
+                .hzh-lab-title {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
     }
 }
 </style>

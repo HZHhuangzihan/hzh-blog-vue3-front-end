@@ -22,7 +22,7 @@ for (let i = 0; i < hzhCount; i++) {
     hzhLaboratoryList.push(hzhMock.mock({
         'hzhArticleCover|+1': hzhArticleCovers,
         hzhTitle: hzhMock.Random.ctitle(10,15),
-        hzhSummary: hzhMock.Random.cparagraph(10,30)
+        hzhSummary: hzhMock.Random.cparagraph(4,5)
     }))
 }
 

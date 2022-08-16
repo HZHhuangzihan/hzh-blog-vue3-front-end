@@ -31,7 +31,7 @@ for (let i = 0; i < hzhCount; i++) {
         'isHot|1-3': true,
         pubTime: +hzhMock.Random.date('T'),
         title: hzhMock.Random.ctitle(10,20),
-        summary: hzhMock.Random.cparagraph(),
+        summary: hzhMock.Random.cparagraph(4,5),
         content: baseContent,
         viewsCount: '@integer(300, 5000)',
         commentsCount: '@integer(10, 200)'

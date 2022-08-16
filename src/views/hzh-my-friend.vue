@@ -9,7 +9,6 @@
                                    </div>
                             </div>
                      </hzh-section-title>
-                     <!-- 说明 -->
                      <div class="hzh-statement">
                             <p>
                                    首先将需要接入本博客站点，然后给我
@@ -23,7 +22,6 @@
                             </hzh-quote>
                             <P>接入成功后将会以邮件的方式通知。</P>
                      </div>
-                     <!-- -->
                      <hr />
                      <div class="hzh-friend-list hzhAnimate">
                             <div class="hzh-friend-item" v-for="item in hzhList" :key="item.hzhId">
@@ -82,7 +80,7 @@ export default {
 @import '@/assets/css/hzh-base.less';
 
 .hzh-my-friend {
-       padding-top: 2.5rem;
+       padding-top: 5rem;
 
        h1.hzh-section-title {
 
@@ -170,36 +168,35 @@ export default {
 }
 
 @media (max-width: 800px) {
-       .hzh-friend-header {
-              margin-top: 0;
-       }
+       .hzh-my-friend {
+              padding-top: 5rem;
 
-       .hzh-friend-item {
-              width: 45%;
-       }
+              .hzh-friend-header {
+                     margin-top: 0;
+              }
 
-       .hzh-friend-item:nth-of-type(2n) {
-              margin-right: 0;
-       }
+              .hzh-friend-item {
 
-       .hzh-friend-item:nth-of-type(3n) {
-              margin-right: 5%;
+                     &:nth-of-type(3n) {
+                            margin-right: 0;
+                     }
+              }
+
        }
 }
 
 @media (max-width: 600px) {
-       .hzh-friend-item {
-              display: block;
-              width: 90%;
-              margin: 0 auto 1.25rem auto;
-       }
+       .hzh-my-friend {
+              padding-top: 5rem;
 
-       .hzh-friend-item:nth-of-type(2n) {
-              margin-right: auto;
-       }
+              .hzh-friend-list {
+                     flex-wrap: wrap;
 
-       .hzh-friend-item:nth-of-type(3n) {
-              margin-right: auto;
+                     .hzh-friend-item {
+                            display: block;
+                            width: 100%;
+                     }
+              }
        }
 }
 </style>
