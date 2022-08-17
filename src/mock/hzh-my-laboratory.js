@@ -1,12 +1,16 @@
 const hzhMock = require('mockjs');
 
-const hzhArticleCovers = [
+const hzhRandomArticleCovers = [  
     require('@/assets/img/darwin.webp'),
     require('@/assets/img/einstein.webp'),
     require('@/assets/img/lavoisier.webp'),
     require('@/assets/img/newton.webp'),
     require('@/assets/img/turing.webp'),
     require('@/assets/img/vonneumann.webp'),
+]
+
+const hzhArticleCovers = [
+    require('@/assets//img/hzh-cover-gaudmap.webp'),
 ]
 
 const hzhLaboratoryList = [{
@@ -20,7 +24,7 @@ const hzhCount = 7
 
 for (let i = 0; i < hzhCount; i++) {
     hzhLaboratoryList.push(hzhMock.mock({
-        'hzhArticleCover|+1': hzhArticleCovers,
+        'hzhArticleCover|+1': hzhRandomArticleCovers,
         hzhTitle: hzhMock.Random.ctitle(10,15),
         hzhSummary: hzhMock.Random.cparagraph(4,5)
     }))

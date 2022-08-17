@@ -45,25 +45,25 @@
       </div>
     </div>
 
-    <div class="UrlCardList TimeLineCardList">
+    <div class="hzh-time-line-card-list">
       <div v-for="(Item, Index) in hzhTimeLineList" v-bind:key="Index">
-        <div class="TimeLineTr" v-if="Index % 2 == 0">
-          <div class="TimeLineTdLeft"></div>
-          <div class="TimeLineTdCenter"></div>
-          <div class="TimeLineTdRight">
-            <div class="BubbleRight">
-              <span class="TimeLineTime">{{ Item.hzhCreateDate }}</span>{{ Item.hzhTextContent }}
+        <div class="hzh-time-line-tr" v-if="Index % 2 == 0">
+          <div class="hzh-time-line-td-left"></div>
+          <div class="hzh-time-line-td-center"></div>
+          <div class="hzh-time-line-td-right">
+            <div class="hzh-bubble-right">
+              <span class="hzh-time-line-time">{{ Item.hzhCreateDate }}</span>{{ Item.hzhTextContent }}
             </div>
           </div>
         </div>
-        <div class="TimeLineTr" v-if="Index % 2 != 0">
-          <div class="TimeLineTdLeft">
-            <div class="Bubble">
-              <span class="TimeLineTime">{{ Item.hzhCreateDate }}</span>{{ Item.hzhTextContent }}
+        <div class="hzh-time-line-tr" v-if="Index % 2 != 0">
+          <div class="hzh-time-line-td-left">
+            <div class="hzh-bubble">
+              <span class="hzh-time-line-time">{{ Item.hzhCreateDate }}</span>{{ Item.hzhTextContent }}
             </div>
           </div>
-          <div class="TimeLineTdCenter"></div>
-          <div class="TimeLineTdRight"></div>
+          <div class="hzh-time-line-td-center"></div>
+          <div class="hzh-time-line-td-right"></div>
         </div>
       </div>
     </div>
@@ -103,13 +103,13 @@ export default {
 @import "@/assets/css/hzh-base.less";
 
 .hzh-time-line {
-  width: 100vw;
-  height: 78vh;
+  padding-top: 5rem;
+  z-index: 999;
+  display: block;
 
   .hzh-sky {
-    top: 5rem;
-    height: 63%;
-    width: 100%;
+    height: 20rem;
+    width: 100vw;
     position: relative;
     animation: hzhMovement 50s ease-out 0s infinite normal none;
     overflow: hidden;
@@ -267,10 +267,10 @@ export default {
   }
 
   .hzh-train {
-    bottom: 12.6rem;
     height: 10rem;
     position: absolute;
-    left: 25%;
+    top: 18rem;
+    left: 20rem;
     width: 44rem;
     z-index: 1;
 
@@ -699,21 +699,19 @@ export default {
     }
   }
 
-  .TimeLineCardList {
-    position: absolute;
-    top: 30rem;
-    z-index: 998;
+  .hzh-time-line-card-list {
+    margin-top: 5rem;
 
-    .TimeLineTr {
+    .hzh-time-line-tr {
       .hzh-flex(center);
       position: relative;
 
-      .TimeLineTdLeft {
+      .hzh-time-line-td-left {
         flex: 1;
         padding-right: 2rem;
         position: relative;
 
-        .Bubble {
+        .hzh-bubble {
           margin-right: 1rem;
           margin: 1rem 0;
           position: relative;
@@ -750,29 +748,28 @@ export default {
             z-index: 998;
           }
 
-          .TimeLineTime {
+          .hzh-time-line-time {
             color: @hzhThemeColor;
             margin-right: 1rem;
           }
         }
       }
 
-      .TimeLineTdCenter {
+      .hzh-time-line-td-center {
         width: 2px;
         height: 100%;
         background-color: @hzhThemeColor;
-        height: 100%;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 50%;
       }
 
-      .TimeLineTdRight {
+      .hzh-time-line-td-right {
         padding-left: 2rem;
         flex: 1;
 
-        .BubbleRight {
+        .hzh-bubble-right {
           margin-right: 1rem;
           margin: 1rem 0;
           position: relative;
@@ -780,76 +777,51 @@ export default {
           border-radius: 5px;
           padding: 1rem;
           border: 1px solid @hzhThemeColor;
-        }
 
-        .BubbleRight:before {
-          content: "";
-          border: 8px solid transparent;
-          width: 0;
-          height: 0;
-          display: inline-block;
-          border-right: 8px solid @hzhThemeColor;
-          left: -16px;
-          position: absolute;
-          top: 1.3rem;
-        }
+          &:before {
+            content: "";
+            border: 8px solid transparent;
+            width: 0;
+            height: 0;
+            display: inline-block;
+            border-right: 8px solid @hzhThemeColor;
+            left: -16px;
+            position: absolute;
+            top: 1.3rem;
+          }
 
-        .BubbleRight:after {
-          content: "";
-          width: 1rem;
-          height: 1rem;
-          display: inline-block;
-          background-color: @hzhWhite;
-          border-radius: 100%;
-          border: 0.2rem solid @hzhThemeColor;
+          &:after {
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+            background-color: @hzhWhite;
+            border-radius: 100%;
+            border: 0.2rem solid @hzhThemeColor;
 
-          position: absolute;
-          left: -2.7rem;
-          top: 1rem;
+            position: absolute;
+            left: -2.7rem;
+            top: 1rem;
 
-          z-index: 1000;
+            z-index: 1000;
+          }
         }
       }
     }
   }
 
+  @media (max-width: 1073px) {
+        .hzh-sky {
+          display: none;
+        }
 
-  .FriendUrlBac {
-    height: 83vh;
-    background: transparent;
-  }
+        .hzh-train {
+          display: none;
+        }
 
-  .FriendUrlTitle {
-    margin: auto;
-    padding: 9rem 0 0 0;
-    width: 80%;
-    height: 20%;
-    text-align: center;
-  }
-
-  .TimeLIneTitle {
-    margin-top: 12vh;
-  }
-
-  .FriendUrlTitleText {
-    color: @hzhWhite;
-    font-size: 2.2rem;
-    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei,
-      Tohoma, Arial;
-  }
-
-  .FriendUrlTitleSummary {
-    color: black;
-    font-size: 1rem;
-    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei,
-      Tohoma, Arial;
-    margin-top: 1rem;
-  }
-
-  .FriendUrlBac {
-    height: 85vh;
-    background: transparent;
-    z-index: 100;
-  }
+        .hzh-time-line-card-list {
+          top: 5rem;                                                                                                                                                                                                                                                                                                                                                                  
+        }
+    }
 }
 </style>
