@@ -813,14 +813,13 @@ export default {
   @media (max-width: 1073px) {
         .hzh-sky {
           display: none;
+          height: 0;
+
         }
 
         .hzh-train {
           display: none;
-        }
-
-        .hzh-time-line-card-list {
-          top: 5rem;                                                                                                                                                                                                                                                                                                                                                                  
+          height: 0;
         }
     }
 }

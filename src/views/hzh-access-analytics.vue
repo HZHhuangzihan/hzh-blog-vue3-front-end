@@ -163,132 +163,133 @@ export default {
                         }
                 }
         }
-}
 
-.title-part {
-        display: flex;
-        align-items: end;
-
-        .module-title {
-                font-size: 18px;
-                font-weight: 500;
-                height: 18px;
-                line-height: 18px;
-        }
-
-        .day-switch {
-                color: #999;
-                font-size: 12px;
-                line-height: 12px;
+        .title-part {
                 display: flex;
-                vertical-align: middle;
-                margin-left: 1rem;
-                cursor: pointer;
+                align-items: end;
+
+                .module-title {
+                        font-size: 18px;
+                        font-weight: 500;
+                        height: 18px;
+                        line-height: 18px;
+                }
+
+                .day-switch {
+                        color: #999;
+                        font-size: 12px;
+                        line-height: 12px;
+                        display: flex;
+                        vertical-align: middle;
+                        margin-left: 1rem;
+                        cursor: pointer;
+
+                        .item {
+                                padding: 0 0.5rem;
+                                border-right: 1px solid #999;
+
+                                &:first-child {
+                                        padding-left: 0;
+                                }
+
+                                &:last-child {
+                                        border-right: none;
+                                }
+
+                                &:hover {
+                                        color: rgba(1, 189, 255, 0.75);
+                                }
+                        }
+
+                        .active {
+                                color: #01aaed;
+                        }
+                }
+
+                .total-number {
+                        color: @hzhDefaultFontColor;
+                        flex: 1;
+                        text-align: right;
+                        cursor: auto;
+                        display: block;
+                }
         }
-}
 
-.list {
-        border: 1px solid #e9e9e9;
-        margin-top: 1.5rem;
-}
+        .list {
+                border: 1px solid #e9e9e9;
+                margin-top: 1.5rem;
 
-.total-number {
-        color: @hzhDefaultFontColor;
-        flex: 1;
-        text-align: right;
-        cursor: auto;
-        display: block;
-}
+                .single {
+                        background: #f6f6f6;
+                }
 
-.item {
-        padding: 0 0.5rem;
-        border-right: 1px solid #999;
+                .align {
+                        text-align: right;
+                        padding-right: 1rem;
+                }
 
-        &:first-child {
-                padding-left: 0;
+                .list-head {
+                        color: #8590a6;
+                        .hzh-flex(center);
+                        border-bottom: 1px solid #f0f0f0;
+                        padding: 8px 0;
+
+                        .list-td {
+                                flex: 1;
+                                padding-left: 1rem;
+                                overflow: hidden;
+
+                                ul {
+                                        margin-block-start: 0em;
+                                        margin-block-end: 0em;
+                                        padding-inline-start: 16px;
+                                }
+
+                                &:nth-child(1) {
+                                        flex: 18%;
+                                }
+
+                                &:nth-child(2) {
+                                        flex: 37%;
+                                }
+
+                                &:nth-child(3) {
+                                        flex: 13%;
+                                }
+
+                                &:nth-child(4) {
+                                        flex: 10%;
+                                        border-right: none;
+                                        text-align: center !important;
+                                }
+
+                                &:nth-child(5) {
+                                        flex: 22%;
+                                        border-right: none;
+                                }
+                        }
+
+                }
+
+                .list-tr {
+                        .hzh-flex('center');
+                        padding: 8px 0;
+                        border-bottom: 1px solid #e9e9e9;
+
+                        .line-heigh {
+                                line-height: 1.1rem;
+                        }
+                }
         }
 
-        &:last-child {
-                border-right: none;
+        .line-chart {
+                height: 300px;
+                margin-top: 1.5rem;
         }
 
-        &:hover {
-                color: rgba(1, 189, 255, 0.75);
+        .map-chart {
+                height: 400px;
         }
-}
-
-.active {
-        color: #01aaed;
-}
-
-.line-chart {
-        height: 300px;
-        margin-top: 1.5rem;
-}
-
-.map-chart {
-        height: 400px;
-}
-
-.list-head {
-        color: #8590a6;
-        /*.hzh-flex(center);*/
-        border-bottom: 1px solid #f0f0f0;
-        padding: 8px 0;
-}
-
-.list-tr {
-        /*.hzh-flex('center');*/
-        padding: 8px 0;
-        border-bottom: 1px solid #e9e9e9;
-}
-
-.list-td {
-        flex: 1;
-        padding-left: 1rem;
-        overflow: hidden;
-}
-
-.line-heigh {
-        line-height: 1.1rem;
-}
-
-.list-td:nth-child(1) {
-        flex: 18%;
-}
-
-.list-td:nth-child(2) {
-        flex: 37%;
-}
-
-.list-td:nth-child(3) {
-        flex: 13%;
-}
-
-.list-td:nth-child(4) {
-        flex: 10%;
-        border-right: none;
-        text-align: center !important;
-}
-
-.list-td:nth-child(5) {
-        flex: 22%;
-        border-right: none;
-}
-
-.list-td ul {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-        padding-inline-start: 16px;
-}
-
-.list .single {
-        background: #f6f6f6;
-}
-
-.list .align {
-        text-align: right;
-        padding-right: 1rem;
 }
 
 /*pc*/
@@ -303,14 +304,14 @@ export default {
 @media only screen and (max-device-width: 768px) {
         .content {
                 margin: 88px auto 0;
-        }
 
-        .give-up {
-                display: none !important;
-        }
+                .give-up {
+                        display: none !important;
+                }
 
-        .action-padding {
-                padding-right: 1rem;
+                .action-padding {
+                        padding-right: 1rem;
+                }
         }
 }
 </style>
