@@ -3,7 +3,6 @@ const { defineConfig } = require('@vue/cli-service')
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV);
 
 const cdn = {
-  // 生产环境
   build: {
     css: ['https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css',
         ],
@@ -43,6 +42,18 @@ module.exports = defineConfig({
   configureWebpack: {
     externals: objExternals
   },
+  configureWebpack:config=>{
+    const CompressionPlugin = require('compression-webpack-plugin');
+    config.plugins.push(
+      new CompressionPlugin({
+        algorithm:'gzip',
+        test:/\.(js|css|woff|woff2|svg|webp|ttf|eot|json|jpg|png|html)$/,  
+        threshold:10240, 
+        deleteOriginalAssets:false, 
+        minRatio:0.8 
+      })
+    );
+  },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
       if (IS_PROD) {
@@ -53,4 +64,4 @@ module.exports = defineConfig({
   }
 })
 
-externalsSet(); //该方法是用来判断当前是否为打包模式的
+externalsSet(); 

@@ -17,7 +17,7 @@
             </swiper-slide>
             <swiper-slide>
                 <hzh-swiper-text-three></hzh-swiper-text-three>
-                <img src="@/assets/img/hzh-banner-pork.png">
+                <img src="@/assets/img/hzh-banner-pork.webp">
             </swiper-slide>
             <swiper-slide>
                 <hzh-swiper-text-six></hzh-swiper-text-six>

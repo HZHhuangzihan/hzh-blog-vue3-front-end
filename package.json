@@ -11,6 +11,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "compression-webpack-plugin": "^10.0.0",
     "less-loader": "^8.0.0",
     "webpack": "^5.74.0",
     "webpack-chain": "^6.5.1",
@@ -28,6 +29,7 @@
     "jQuery": "^1.7.4",
     "less": "^4.1.2",
     "mockjs": "^1.0.0",
+    "mongodb": "^4.9.0",
     "swiper": "^8.0.6",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.2"
